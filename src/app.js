@@ -32,8 +32,19 @@ function displayTemperature(response) {
 
 }
 
-let apiKey ="o57fa7t996f351503fc5e6015403efbd";
-let city ="Lisbon"
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`
+function search(city) {
+    let apiKey ="o57fa7t996f351503fc5e6015403efbd";
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(displayTemperature);
+}
 
-axios.get(apiUrl).then(displayTemperature);
+function handleSubmit(event) {
+    event.preventDefault();
+    let cityInputElement = document.querySelector("#city-input");
+    search(cityInputElement.value);
+}
+
+search("Lisbon");
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);

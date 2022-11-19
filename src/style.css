@@ -60,5 +60,10 @@ width: 64px;
     position:relative;
     font-size: 16px;
     top: -34px;
-
+}
+.weather-temperature .unit-link {
+    position:relative;
+    font-size: 16px;
+    text-decoration: none;
+    top: -34px;
 }

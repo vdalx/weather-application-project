@@ -16,11 +16,31 @@
     <div class="container">
         <div class="weather-app-wrapper">
         <div class="weather-app">
+            <form id="search-form" class="mb-3">
+                <div class="row">
+                    <div class="col-9">
+                <input
+                    type="search"
+                    placeholder="Enter a city ..."
+                    class="form-control"
+                    id="city-input"
+                    autocomplete="off"
+                    />
+            </div>
+            <div class="col-3">
+            <input 
+                type="submit"
+                value="Search"
+                class="btn btn-primary w-100"
+                />
+        </div>
+            </div>
+            </form>
             <div class="overview">
             <h1 id="city">
             </h1>
             <ul>
-            <li id="date">
+            <li> Last updated: <span id="date"></span>
             </li>
             <li id="description">
             </li>
@@ -34,7 +54,7 @@
                 id="weatherIcon"
                 />
                 <div>
-                    <strong id="temperature"></strong><span class="units">°C | <a href="#" class="unit-link">°F</a></span>
+                    <strong id="temperature"></strong><span class="units">°C | </span><span><a href="#" class="unit-link">°F</a></span>
                 </div>
                 </div>
             </div>
