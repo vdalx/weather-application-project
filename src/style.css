@@ -59,11 +59,13 @@ width: 64px;
 .weather-temperature .units {
     position:relative;
     font-size: 16px;
-    top: -34px;
-}
-.weather-temperature .unit-link {
-    position:relative;
-    font-size: 16px;
     text-decoration: none;
     top: -34px;
+}
+
+.weather-temperature .units #celsius-link {
+    text-decoration: none;
+}
+.weather-temperature .units #fahrenheit-link {
+    text-decoration: none;
 }
