@@ -49,16 +49,21 @@ function handleSubmit(event) {
 
 function displayFahrenheitTemp(event) {
     event.preventDefault();
-    let fahrenheitTemp = (celsiusTemperature * 9)/5 + 32;
     let temperatureElement = document.querySelector("#temperature");
+    celsiusLink.classList.remove("active");
+    fahrenheitLink.classList.add("active");
+    let fahrenheitTemp = (celsiusTemperature * 9)/5 + 32;
     temperatureElement.innerHTML = Math.round(fahrenheitTemp);
 }
 
 function displayCelsiusTemp(event) {
     event.preventDefault();
     let temperatureElement = document.querySelector("#temperature");
+    celsiusLink.classList.add("active");
+    fahrenheitLink.classList.remove("active");
     temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
+
 search("Lisbon");
 
 let celsiusTemperature = null;
