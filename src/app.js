@@ -64,8 +64,6 @@ function displayCelsiusTemp(event) {
     temperatureElement.innerHTML = Math.round(celsiusTemperature);
 }
 
-search("Lisbon");
-
 let celsiusTemperature = null;
 
 let form = document.querySelector("#search-form");
@@ -76,3 +74,5 @@ fahrenheitLink.addEventListener("click", displayFahrenheitTemp);
 
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemp);
+
+search("Lisbon");
