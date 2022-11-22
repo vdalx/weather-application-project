@@ -79,8 +79,3 @@ width: 64px;
 .weather-temperature .active:hover {
     text-decoration: none;
 }
-
-.btn-primary {
-    background-color: #244653 !important;
-    border-color: #244653 !important;
-    }
