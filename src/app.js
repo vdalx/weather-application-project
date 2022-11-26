@@ -22,7 +22,6 @@ return days[day];
 function displayForecast(response) {
     let forecast = response.data.daily;
     let forecastElement = document.querySelector("#forecast");
-    let days =["Sat","Sun","Mon","Tues", "Wed"];
     let forecastHTML = `<div class="row">`;
     forecast.forEach(function(forecastDay, index) {  
         if (index < 6) {  
