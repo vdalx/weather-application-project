@@ -71,7 +71,7 @@ function displayTemperature(response) {
     cityElement.innerHTML = response.data.city;
     descriptionElement.innerHTML = response.data.condition.description;
     humidityElement.innerHTML = Math.round(response.data.temperature.humidity);
-    windElement.innerHTML = Math.round(response.data.wind.speed);
+    windElement.innerHTML = Math.round(response.data.wind.speed * 3.6);
     dateElement.innerHTML = formatDate(response.data.time * 1000);
     weatherIconElement.setAttribute("src", response.data.condition.icon_url);
     weatherIconElement.setAttribute("alt", response.data.condition.description);
@@ -98,7 +98,7 @@ function handleCurrent(event) {
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
-let current = document.querySelector("#search-form #current-location");
+let current = document.querySelector("#current-location");
 current.addEventListener("click", handleCurrent);
 
 function retrievePosition(position) {
