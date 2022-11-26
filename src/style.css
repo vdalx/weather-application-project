@@ -66,15 +66,11 @@ width: 64px;
 }
 
 .units a {
-    color:#e6e200;
     text-decoration: none;
 }
 .weather-temperature .active {
     color: #36454f;
     cursor: default;
-}
-.weather-temperature .inactive {
-    color: #6b9362;
 }
 .weather-temperature .active:hover {
     text-decoration: none;
@@ -94,5 +90,5 @@ width: 64px;
     font-size: 13px;
 }
 .weather-forecast-temperature-min {
-    opacity: 0.8;
+    opacity: 0.7;
 }
