@@ -90,11 +90,16 @@ function handleSubmit(event) {
     search(cityInputElement.value);
 }
 
+function handleCurrent(event) {
+    event.preventDefault();
+    navigator.geolocation.getCurrentPosition(retrievePosition);
+}
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
-let current = document.querySelector("#current-location");
-current.addEventListener("submit", retrievePosition)
+let current = document.querySelector("#search-form #current-location");
+current.addEventListener("click", handleCurrent);
 
 function retrievePosition(position) {
     let apiKey ="o57fa7t996f351503fc5e6015403efbd";
