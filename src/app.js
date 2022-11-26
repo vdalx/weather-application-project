@@ -80,11 +80,10 @@ function displayTemperature(response) {
 }
 
 function search(city) {
-    let apiKey ="o57fa7t996f351503fc5e6015403efbd";
-    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
+    let apiKey = "o57fa7t996f351503fc5e6015403efbd";
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}`;
     axios.get(apiUrl).then(displayTemperature);
 }
-
 function handleSubmit(event) {
     event.preventDefault();
     let cityInputElement = document.querySelector("#city-input");
@@ -94,4 +93,15 @@ function handleSubmit(event) {
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
 
-search("Lisbon");
+let current = document.querySelector("#current-location");
+current.addEventListener("submit", retrievePosition)
+
+function retrievePosition(position) {
+    let apiKey ="o57fa7t996f351503fc5e6015403efbd";
+    let lat = position.coords.latitude;
+    let lon = position.coords.longitude;
+    let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(displayTemperature);
+}
+
+navigator.geolocation.getCurrentPosition(retrievePosition);
