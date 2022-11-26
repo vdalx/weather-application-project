@@ -32,7 +32,6 @@ function displayTemperature(response) {
     dateElement.innerHTML = formatDate(response.data.time * 1000);
     weatherIconElement.setAttribute("src", response.data.condition.icon_url);
     weatherIconElement.setAttribute("alt", response.data.condition.description);
-
 }
 
 function search(city) {
@@ -76,3 +75,4 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemp);
 
 search("Lisbon");
+
