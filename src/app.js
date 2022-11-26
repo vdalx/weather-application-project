@@ -13,7 +13,8 @@ function formatDate(timestamp) {
 return `${day} ${hours}:${minutes}`;
 }
 
-function displayForecast() {
+function displayForecast(response) {
+    console.log(response.data.daily);
     let forecastElement = document.querySelector("#forecast");
     let days =["Sat","Sun","Mon","Tues", "Wed"];
     let forecastHTML = `<div class="row">`;
@@ -37,6 +38,13 @@ function displayForecast() {
     forecastHTML = forecastHTML + `</div>`;
     forecastElement.innerHTML = forecastHTML;
 }
+
+function getForecast(coordinates) {
+    let apiKey ="o57fa7t996f351503fc5e6015403efbd";
+    let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lon=${coordinates.longitude}&lat=${coordinates.latitude}&key=${apiKey}&units=metric`;
+    axios.get(apiUrl).then(displayForecast);
+}
+
 function displayTemperature(response) {
     let temperatureElement = document.querySelector("#temperature");
     let cityElement = document.querySelector("#city");
@@ -56,6 +64,8 @@ function displayTemperature(response) {
     dateElement.innerHTML = formatDate(response.data.time * 1000);
     weatherIconElement.setAttribute("src", response.data.condition.icon_url);
     weatherIconElement.setAttribute("alt", response.data.condition.description);
+
+    getForecast(response.data.coordinates);
 }
 
 function search(city) {
@@ -99,5 +109,3 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemp);
 
 search("Lisbon");
-displayForecast();
-
