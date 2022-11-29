@@ -65,6 +65,7 @@ function displayTemperature(response) {
     let weatherIconElement = document.querySelector("#weatherIcon");
 
     celsiusTemperature = response.data.temperature.current;
+    weatherIconText = response.data.condition.icon;
 
     temperatureElement.innerHTML = Math.round(celsiusTemperature);
     cityElement.innerHTML = response.data.city;
@@ -72,7 +73,7 @@ function displayTemperature(response) {
     humidityElement.innerHTML = Math.round(response.data.temperature.humidity);
     windElement.innerHTML = Math.round(response.data.wind.speed * 3.6);
     dateElement.innerHTML = formatDate(response.data.time * 1000);
-    weatherIconElement.setAttribute("src", response.data.condition.icon_url);
+    weatherIconElement.setAttribute("src", `https://shecodes-assets.s3.amazonaws.com/api/weather/icons/${weatherIconText}.png`);
     weatherIconElement.setAttribute("alt", response.data.condition.description);
 
     getForecast(response.data.coordinates);
